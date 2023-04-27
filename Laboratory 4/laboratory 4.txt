@@ -40,7 +40,7 @@ hamming_filtered = low_pass_filter .* hamming_window;
 figure;
 subplot(1,2,1)
 plot(x_values, hamming_filtered);
-title('Hamming Window Filtered with Low Pass Filter');
+title({'Hamming Window','Filtered With Lowpass Filter'});
 xlabel('Sample Number');
 ylabel('Amplitude');
 
@@ -68,7 +68,7 @@ loadedSignal = load('nspeech.mat');
 
 % Generate a lowpass filter
 wc = 2.0;
-lwpass = wc/pi.sinc(wc./pi.((0:42)-10));
+lwpass = wc/pi*sinc(wc./pi*((0:42)-10));
 
 % Apply the Kaiser window filter to the lowpass filter
 filteredSignal = lwpass.*kaiserFilter';
